@@ -164,10 +164,22 @@
         android:gravity="center"
         >
         <LinearLayout
+            android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
+            android:orientation="horizontal"
             >
+            <TextView
+                android:layout_marginStart="20dp"
+                android:onClick="back23"
+                android:paddingHorizontal="10dp"
+                android:background="@drawable/okant_white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Выйти"
+                android:textColor="@color/white"
+                android:textSize="50dp"
+                tools:ignore="OnClick" />
             <RelativeLayout
                 android:gravity="right"
                 android:layout_width="match_parent"

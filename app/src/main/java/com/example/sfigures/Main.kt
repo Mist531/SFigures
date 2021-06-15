@@ -24,4 +24,8 @@ class Main : AppCompatActivity() {
     fun info(view: View) {
         startActivity(Intent(this, info::class.java))
     }
+
+    fun back23(view: View) {
+        finish()
+    }
 }
