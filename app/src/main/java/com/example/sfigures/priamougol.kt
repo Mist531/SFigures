@@ -10,45 +10,39 @@ import android.widget.Toast
 class priamougol : AppCompatActivity() {
     var priamougol_shirina: EditText? = null
     var priamougol_dlina: EditText? = null
+    var stroka: String? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_priamougol)
-        priamougol_shirina= findViewById(R.id.priamougol_shirina)
+        priamougol_shirina = findViewById(R.id.priamougol_shirina)
         priamougol_dlina = findViewById(R.id.priamougol_dlina)
+        stroka = ""
     }
 
     fun back(view: View) {
         startActivity(Intent(this, Main::class.java))
     }
+
     fun dalee(view: View) {
-        if((priamougol_dlina?.text?.length != 0) and (priamougol_shirina?.text?.length != 0)){
-            var num: Float = try {
-                priamougol_dlina?.text.toString().toFloat()
-            } catch (e: Exception) {
-                Toast.makeText(this, "Введите число (Поменяйте , на .)", Toast.LENGTH_SHORT).show()
-                return
-            }
-            var num1: Float = try {
-                priamougol_shirina?.text.toString().toFloat()
-            } catch (e: Exception) {
-                Toast.makeText(this, "Введите число (Поменяйте , на .)", Toast.LENGTH_SHORT).show()
-                return
-            }
-            var a: Float = (num*num1).toFloat()
-            Toast.makeText(this, "S="+a, Toast.LENGTH_SHORT).show()
-        }
-        else{
-            if((priamougol_dlina?.text?.length != 0) and (priamougol_shirina?.text?.length == 0)) {
-                Toast.makeText(this, "Данных не хватает (Поменяйте , на .)", Toast.LENGTH_LONG).show()
-            }
-            else{
-                if((priamougol_dlina?.text?.length == 0) and (priamougol_shirina?.text?.length != 0)) {
-                    Toast.makeText(this, "Данных не хватает (Поменяйте , на .)", Toast.LENGTH_LONG).show()
+        try {
+            if ((priamougol_dlina?.text?.length != 0) and (priamougol_shirina?.text?.length != 0)) {
+                var num: Float = priamougol_dlina?.text.toString().toFloat()
+                var num1: Float = priamougol_shirina?.text.toString().toFloat()
+                stroka = stroka + "a=" + num1 + " b=" + num +" =>\nS=${num * num1}\n"
+                if (stroka != "") {
+                    Toast.makeText(this, ""+stroka, Toast.LENGTH_SHORT).show()
+                    stroka =""
                 }
-                else{
-                    Toast.makeText(this, "Введите данные", Toast.LENGTH_LONG).show()
-                }
+            } else {
+                Toast.makeText(this, "Введите данные (нужно два числа)", Toast.LENGTH_LONG).show()
             }
         }
+        catch (e: java.lang.Exception) {
+            Toast.makeText(this, "Введины невозможные числа", Toast.LENGTH_SHORT).show()
+            if (stroka != "") {
+                stroka =""
+            }
+        }
+
     }
-    }
+}
