@@ -20,7 +20,7 @@ class priamougol : AppCompatActivity() {
     }
 
     fun back(view: View) {
-        startActivity(Intent(this, Main::class.java))
+        finish()
     }
 
     fun dalee(view: View) {

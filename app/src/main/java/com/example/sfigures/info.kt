@@ -11,6 +11,6 @@ class info : AppCompatActivity() {
         setContentView(R.layout.activity_info)
     }
     fun back23(view: View) {
-        startActivity(Intent(this, Main::class.java))
+        finish()
     }
 }

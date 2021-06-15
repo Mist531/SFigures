@@ -24,7 +24,7 @@ class oval : AppCompatActivity() {
         stroka = ""
     }
     fun back(view: View) {
-        startActivity(Intent(this, Main::class.java))
+        finish()
     }
     fun dalee(view: View) {
         try {

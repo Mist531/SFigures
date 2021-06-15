@@ -11,6 +11,7 @@ class Loading : AppCompatActivity() {
         setContentView(R.layout.activity_loading)
         Handler().postDelayed({
             startActivity(Intent(this, Main::class.java))
+            finish()
         }, 2000)
     }
 }
